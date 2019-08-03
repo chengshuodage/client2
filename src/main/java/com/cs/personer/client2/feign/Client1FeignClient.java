@@ -13,4 +13,7 @@ public interface Client1FeignClient {
     @RequestMapping(value = "/test/getFeign", method = RequestMethod.GET)
     String getFeign(@RequestParam String name);
 
+    @RequestMapping(value = "/test/getHystrix", method = RequestMethod.GET)
+    String getHystrix(@RequestParam String name);
+
 }

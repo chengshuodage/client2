@@ -39,6 +39,17 @@ public class TestController {
         return "feign获取:" + feign;
     }
 
+    @GetMapping("/getHystrix")
+    public String getHystrix(@RequestParam String name) {
+        String feign = "";
+        try {
+            feign = client1FeignClient.getHystrix(name);
+        } catch (Exception e) {
+            log.error("调用feign出错:" + e.getMessage());
+        }
+        return "feign获取:" + feign;
+    }
+
     @GetMapping("/getRestTemplate")
     public String getRestTemplate(@RequestParam String name) {
         String url1 = "http://localhost:8082/test/getFeign?name=" + name;
